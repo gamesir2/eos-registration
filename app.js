@@ -6,6 +6,8 @@ scheduleTask = require('./wise_module/schedule').single
 
 getAccount = require('./wise_module/account')
 
+getSpiderPage = require('./wise_module/spider')
+
 
 // new date时月份要减1
 var date = new Date(2018,8,28,21,28,1);
@@ -29,7 +31,8 @@ var asyncTask = async function() {
         console.log('cpu is enough')
     }
     console.log(cpu_available,cpu_used)
-    
+    var spider = await getSpiderPage()
+    console.log('爬取结束')
 }
 asyncTask()
 //scheduleTask(buy('0.0122 EOS'),date)
