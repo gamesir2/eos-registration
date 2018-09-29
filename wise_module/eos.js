@@ -14,4 +14,5 @@ config = {
 
 eos = Eos(config)
 
+
 module.exports = eos
