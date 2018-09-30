@@ -9,9 +9,10 @@ async function monitor(callback){
     do{
         account = await getAccount()
         bla_n = transfrom.to_amout(account.core_liquid_balance)
-        bla_max = bal_n>bla_max?bal_n:bal_max
+        bla_max = bla_n>bla_max?bla_n:bla_max
+        console.log(bla_n)
     }
-    while(bla_n <= bla_max*0.9)
+    while(bla_n >= bla_max*0.9);
     callback()
 }
 

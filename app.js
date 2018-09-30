@@ -42,7 +42,7 @@ var asyncTask = async function() {
     // var spider = await getSpiderPage()
     // console.log('爬取结束')
 }
-asyncTask()
+//asyncTask()
 
 
 
@@ -54,8 +54,9 @@ var toSell = async function() {
 }
 
 var begin_app = async function() {
-    await buy('0.0122 EOS','')
-    monitor(toSell())
+    // await buy('0.0122 EOS','')
+    // await monitor(toSell())
+    monitor(function(){console.log('结束监控')})
 }
-
-scheduleTask(begin_app,date)
+begin_app()
+//scheduleTask(begin_app,date)
