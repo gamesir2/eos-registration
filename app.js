@@ -50,7 +50,7 @@ var test = async function() {
     await scheduleTask(buy('0.0122 EOS',''),date)
     var bla = await getBalance()
     if(transfrom.to_amout(bla)>0){
-        await scheduleTask(monitor(sell(bla)),date)
+        monitor(sell(bla)),date
     }
 }
 test()
