@@ -11,8 +11,14 @@ getAccount = require('./wise_module/account')
 
 getSpiderPage = require('./wise_module/spider')
 
+
 transfrom = require('./wise_module/transfrom')
 
+
+getTable = require('./wise_module/tablerow')
+
+const userAccount = require('./config').user
+const desposeAccout = require('./config').despose;
 
 // new date时月份要减1
 var date = new Date(2018,8,28,21,28,1);
@@ -39,6 +45,7 @@ var asyncTask = async function() {
         console.log('cpu is enough')
     }
     console.log(cpu_available,cpu_used)
+
     // var spider = await getSpiderPage()
     // console.log('爬取结束')
 }
@@ -57,6 +64,9 @@ var begin_app = async function() {
     // await buy('0.0122 EOS','')
     // await monitor(toSell())
     monitor(function(){console.log('结束监控')})
+
+    //var spider = await getSpiderPage()
+    var rows = getTable(desposeAccout,desposeAccout,"bancor")
 }
 begin_app()
 //scheduleTask(begin_app,date)
