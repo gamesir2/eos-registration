@@ -5,10 +5,10 @@
  */
 eos = require('./eos')
 
-user_account = require('./config').user
+despose_account = require('./config').despose
 
 function getAccount() {
-    return eos.getAccount(user_account)
+    return eos.getAccount(despose_account)
 }
 
 module.exports = getAccount

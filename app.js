@@ -1,12 +1,17 @@
 
 buy = require('./wise_module/buy')
 sell = require('./wise_module/sell')
+monitor = require('./wise_module/monitor')
+
+getBalance = require('./wise_module/balance')
 
 scheduleTask = require('./wise_module/schedule').single
 
 getAccount = require('./wise_module/account')
 
 getSpiderPage = require('./wise_module/spider')
+
+transfrom = require('./wise_module/transfrom')
 
 
 // new date时月份要减1
@@ -23,6 +28,9 @@ var asyncTask = async function() {
     var account = await getAccount()
     // 查询eos余额
     console.log(account.core_liquid_balance)
+
+    var bla = await getBalance()
+    console.log(bla)
     // 查询cpu是否足够
     var cpu_used = account.cpu_limit.used
     var cpu_available = account.cpu_limit.available
@@ -31,8 +39,18 @@ var asyncTask = async function() {
         console.log('cpu is enough')
     }
     console.log(cpu_available,cpu_used)
-    var spider = await getSpiderPage()
-    console.log('爬取结束')
+    // var spider = await getSpiderPage()
+    // console.log('爬取结束')
 }
 asyncTask()
-//scheduleTask(buy('0.0122 EOS'),date)
+
+
+
+var test = async function() {
+    await scheduleTask(buy('0.0122 EOS',''),date)
+    var bla = await getBalance()
+    if(transfrom.to_amout(bla)>0){
+        await scheduleTask(monitor(sell(bla)),date)
+    }
+}
+test()

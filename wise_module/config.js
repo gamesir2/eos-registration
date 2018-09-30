@@ -1,9 +1,11 @@
-const userAccount = 'heydemrzgqge'
+const userAccount = 'fcoindepsoit'
 const desposeAcount = 'youbaoyoubao'
 const privateKey = ''
+const syboml = 'YOU'
 
 module.exports = {
     'user': userAccount,
     'despose':desposeAcount,
-    'privateKey':privateKey
+    'privateKey':privateKey,
+    'syboml':syboml
 }
