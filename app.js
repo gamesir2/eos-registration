@@ -52,5 +52,10 @@ var toSell = async function() {
         sell(bla)
     }
 }
-await scheduleTask(buy('0.0122 EOS',''),date)
-monitor(toSell())
+
+var begin_app = async function() {
+    await buy('0.0122 EOS','')
+    monitor(toSell())
+}
+
+scheduleTask(begin_app,date)
